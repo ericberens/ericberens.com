@@ -14,11 +14,11 @@ jobs:
       - name: Read .nvmrc
         run: echo ::set-output name=version::$(cat .nvmrc)
         id: nvm
+      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}\n@ericberens:registry=https://npm.pkg.github.com\nalways-auth=true" > .npmrc
       - name: Setup node
         uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ steps.nvm.outputs.version }}
-      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}\n@ericberens:registry=https://npm.pkg.github.com\nalways-auth=true" > ~/.npmrc
       - name: Initialize cache
         id: yarn-cache-dir
         run: echo ::set-output name=dir::$(yarn cache dir)
