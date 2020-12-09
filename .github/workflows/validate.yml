@@ -29,8 +29,8 @@ jobs:
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --no-lockfile
-        #env:
-          #NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This GITHUB_TOKEN is provided by GitHub Actions.
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This GITHUB_TOKEN is provided by GitHub Actions.
       - name: Lint
         run: yarn lint
       - name: Test
