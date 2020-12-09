@@ -20,7 +20,6 @@ jobs:
           always-auth: true
           node-version: ${{ steps.nvm.outputs.version }}
           registry-url: https://npm.pkg.github.com
-          scope: '@ericberens'
       - name: Initialize cache
         id: yarn-cache-dir
         run: echo ::set-output name=dir::$(yarn cache dir)
