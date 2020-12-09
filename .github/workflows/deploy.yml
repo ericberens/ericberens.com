@@ -39,8 +39,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
+        run: yarn --frozen-lockfile --prefer-offline
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }} # Engineering user PAT
       - name: Build
