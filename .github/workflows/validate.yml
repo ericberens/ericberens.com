@@ -11,25 +11,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Read .nvmrc
+        run: echo ::set-output name=version::$(cat .nvmrc)
+        id: nvm
       - name: Setup node
         uses: actions/setup-node@v2.1.2
         with:
-          node-version: 14
-        env:
-          AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This GITHUB_TOKEN is provided by GitHub Actions.
+          node-version: ${{ steps.nvm.outputs.version }}
+          registry: https://npm.pkg.github.com
+          scope: '@ericberens'
       - name: Initialize cache
         id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo ::set-output name=dir::$(yarn cache dir)
       - name: Restore cache
         uses: actions/cache@v2
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-website-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-website-
+            ${{ runner.os }}-yarn-
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --no-lockfile
+        run: yarn --frozen-lockfile
       - name: Lint
         run: yarn lint
       - name: Test
