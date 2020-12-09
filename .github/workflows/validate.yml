@@ -17,8 +17,9 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2.1.2
         with:
+          always-auth: true
           node-version: ${{ steps.nvm.outputs.version }}
-          registry: https://npm.pkg.github.com
+          registry-url: https://npm.pkg.github.com
           scope: '@ericberens'
       - name: Initialize cache
         id: yarn-cache-dir
