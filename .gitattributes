@@ -1,0 +1,29 @@
+* text=auto eol=lf
+
+#
+## These files are binary and should be left untouched
+#
+
+# (binary is a macro for -text -diff)
+*.eot binary
+*.fla binary
+*.flv binary
+*.gif binary
+*.gz binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.mov binary
+*.mp3 binary
+*.mp4 binary
+*.otf binary
+*.png binary
+*.pdf binary
+*.pyc binary
+*.swf binary
+*.ttf binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+*.7z binary
