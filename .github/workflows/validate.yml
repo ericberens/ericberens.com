@@ -18,7 +18,6 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ steps.nvm.outputs.version }}
-          registry-url: https://npm.pkg.github.com
       - name: Initialize cache
         id: yarn-cache-dir
         run: echo ::set-output name=dir::$(yarn cache dir)
@@ -34,7 +33,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
         env:
-          NODE_AUTH_TOKEN_1: ${{ secrets.GITHUB_TOKEN }} # This GITHUB_TOKEN is provided by GitHub Actions.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This GITHUB_TOKEN is provided by GitHub Actions.
       - name: Lint
         run: yarn lint
       - name: Test
