@@ -26,8 +26,8 @@ $ cd ericberens.com
 then create a personal access token and store in a `.npmrc` config file
 
 ```
+@ericberens:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=<GITHUB__PERSONAL_ACCESS_TOKEN>
-@ericberens:registry=https://npm.pkg.github.com/
 always-auth=true
 ```
 
