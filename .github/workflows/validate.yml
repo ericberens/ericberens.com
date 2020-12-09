@@ -1,0 +1,37 @@
+name: Validate
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 14
+          registry-url: "https://npm.pkg.github.com"
+      - name: Initialize cache
+        id: yarn-cache-dir
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Restore cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-website-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-website-
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn --no-lockfile
+        #env:
+          #NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This GITHUB_TOKEN is provided by GitHub Actions.
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
