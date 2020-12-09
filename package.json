@@ -6,7 +6,7 @@
     "dependencies": {},
     "description": "ESLint config for front-end projects",
     "devDependencies": {
-        "@ericberens/eslint-config-ericberens": "1.1.3",
+        "@ericberens/eslint-config-ericberens": "1.2.1",
         "eslint": "^7.15.0",
         "husky": "^4.3.5",
         "import-sort": "^6.0.0",

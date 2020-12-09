@@ -14,12 +14,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2.1.2
         with:
-          always-auth: true
           node-version: 14
-          registry-url: https://npm.pkg.github.com/
-          scope: '@ericberens'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This GITHUB_TOKEN is provided by GitHub Actions.
       - name: Initialize cache
         id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"

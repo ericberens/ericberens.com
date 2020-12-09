@@ -310,10 +310,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@ericberens/eslint-config-ericberens@1.1.3":
-  version "1.1.3"
-  resolved "https://npm.pkg.github.com/download/@ericberens/eslint-config-ericberens/1.1.3/d3dc844c23fa7b2e59a89387da2dec58bbc7739943e0da4dbd3a05002f027674#4acb144314cbf5c343a89939522fe2e1eed83a7f"
-  integrity sha512-J4ED4u4/8VBvD2Met3aZvn8AgQZ8fSNz27vMvIXQxBUjvb86il6gUgO4vsxDo00ltdU8lL++lMSvsH5zDhuGWQ==
+"@ericberens/eslint-config-ericberens@1.2.1":
+  version "1.2.1"
+  resolved "https://npm.pkg.github.com/download/@ericberens/eslint-config-ericberens/1.2.1/5b0710db32a8096ff6700cb87360663733e90678543625a8e71f35fdf14f8405#2a2fbef987c31d244534d54fd3137fa9c7cba62c"
+  integrity sha512-FgMZmUdM+6Swb3KPIU9luUu6uyIvEvsSTKSicPkknJrKUTGmlljSX0TVrYbEOgsQjYJnB1eMnafPKnWwby+LJg==
   dependencies:
     "@babel/core" "^7.12.9"
     "@babel/eslint-parser" "^7.12.1"
