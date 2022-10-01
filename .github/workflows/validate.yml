@@ -15,7 +15,7 @@ jobs:
         run: echo ::set-output name=version::$(cat .nvmrc)
         id: nvm
       - name: Setup node
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v3.5.0
         with:
           node-version: ${{ steps.nvm.outputs.version }}
           registry-url: https://npm.pkg.github.com
